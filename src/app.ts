@@ -1,8 +1,12 @@
 import cluster from "cluster";
+import fs from "node:fs";
 import * as server from "./http";
 import { Config, defaultConfig } from "./config";
 import { logger } from "./lib";
 import { buildRouter } from "./routers/settings";
+import { mediaRouter } from "./routers/mediaRouter";
+
+const config: Config = defaultConfig;
 
 process.on("uncaughtException", function (err) {
   logger.error(err);
@@ -13,18 +17,19 @@ process.on("unhandledRejection", (reason, promise) => {
   console.error("Promise:", promise);
 });
 
-const config: Config = defaultConfig;
-
 logger.info(
   "app",
-  {},
   `Server started [Port: ${config.http.port}]` +
     "\n" +
-    `\tAPI URL: http://${config.http.host}:${config.http.port}/`
+    `\tAPI URL: ${config.http.baseUrl}`
 );
 
 function entry() {
-  const router = buildRouter();
+  if (!fs.existsSync(defaultConfig.datasource.storage.path)) {
+    fs.mkdirSync(defaultConfig.datasource.storage.path, { recursive: true });
+  }
+
+  const router = buildRouter([mediaRouter]);
 
   const srv = server.buildServer();
   const stopServerFn = srv.start(router);
