@@ -4,6 +4,8 @@
   "main": "index.js",
   "scripts": {
     "start:dev": "nodemon --inspect dist/app.js",
+    "build": "rm -rf ./dist && clear && tsc -v && tsc -p tsconfig.json",
+    "compose:up": "docker compose up -d",
     "watch": "tsc -w",
     "jest": "jest"
   },
@@ -23,7 +25,6 @@
     "jest": "^29.7.0",
     "mime-types": "^2.1.35",
     "multer": "^1.4.5-lts.1",
-    "pg": "^8.13.3",
     "supertest": "^7.0.0",
     "ts-jest": "^29.2.5"
   },
@@ -34,7 +35,6 @@
     "@types/mime-types": "^2.1.4",
     "@types/multer": "^1.4.12",
     "@types/node": "^22.13.4",
-    "@types/pg": "^8.11.11",
     "nodemon": "^3.1.9",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.3"
