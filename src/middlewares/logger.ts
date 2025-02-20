@@ -19,12 +19,10 @@ export const loggerMiddleware = (
   res.on("close", () => {
     logger.info(
       "",
-      {
-        date: new Date(),
-      },
+      { date: new Date() },
       `[HTTP Response] ${req.method} ${url} ${res.statusCode}`
     );
-
-    next();
   });
+
+  next(); // Переместили next() сюда
 };
