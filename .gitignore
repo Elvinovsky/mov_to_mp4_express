@@ -1,0 +1,17 @@
+node_modules
+
+ .env
+
+**/.DS_Store
+
+.idea
+
+dist
+
+logs
+
+yarn-error.log
+
+pg_data
+
+_storage

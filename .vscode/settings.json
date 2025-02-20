@@ -1,0 +1,29 @@
+{
+    "editor.fontFamily": "'JetBrains Mono', 'Courier New', monospace",
+    "editor.fontLigatures": true,
+    "editor.fontSize": 15,
+    "editor.tabSize": 2,
+    "editor.suggestSelection": "first",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    },
+  
+    "editor.tabCompletion": "on",
+    "editor.wordBasedSuggestions": "off",
+  
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+  
+    "terminal.integrated.fontFamily": "'JetBrains Mono', monospace",
+    "terminal.integrated.defaultProfile.windows": "Git Bash", // или ваш любимый терминал
+  
+    "workbench.iconTheme": "material-icon-theme",
+    "workbench.colorTheme": "Darcula Mono",
+    "editor.minimap.enabled": false, // если хотите отключить миникарту
+    "files.autoSave": "afterDelay",
+    "editor.renderWhitespace": "all",
+    "editor.cursorSmoothCaretAnimation": "on"
+  }
+  
